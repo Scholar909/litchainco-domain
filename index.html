@@ -1,171 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polar Area Diagram - Slim Proportions</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            font-family: 'Times New Roman', serif;
-        }
-        #container {
-            background: white;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            border-radius: 4px;
-        }
-        canvas { background: white; }
-        button {
-            margin-top: 25px;
-            padding: 12px 25px;
-            font-size: 15px;
-            cursor: pointer;
-            background-color: #333;
-            color: white;
-            border: none;
-            transition: 0.3s;
-        }
-        button:hover { background-color: #000; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Litchainco</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#0b0b0b;
+color:#eaeaea;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:30px;
+}
+
+/* main container */
+
+.wrapper{
+max-width:520px;
+width:100%;
+}
+
+/* subtle domain label */
+
+.label{
+font-size:12px;
+letter-spacing:3px;
+text-transform:uppercase;
+opacity:.5;
+margin-bottom:25px;
+}
+
+/* domain name */
+
+h1{
+font-size:42px;
+font-weight:500;
+letter-spacing:-1px;
+margin-bottom:10px;
+}
+
+/* subtle underline accent */
+
+.accent{
+width:60px;
+height:2px;
+background:#ffffff;
+opacity:.25;
+margin:18px 0 28px 0;
+}
+
+/* description */
+
+.desc{
+font-size:16px;
+line-height:1.6;
+opacity:.75;
+margin-bottom:35px;
+}
+
+/* price */
+
+.price{
+font-size:28px;
+margin-bottom:28px;
+font-weight:500;
+}
+
+/* buttons */
+
+.actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:12px 22px;
+border-radius:6px;
+font-size:14px;
+text-decoration:none;
+transition:.25s ease;
+}
+
+.primary{
+background:#ffffff;
+color:#0b0b0b;
+}
+
+.primary:hover{
+transform:translateY(-2px);
+}
+
+.secondary{
+border:1px solid rgba(255,255,255,.2);
+color:#eaeaea;
+}
+
+.secondary:hover{
+background:rgba(255,255,255,.06);
+}
+
+/* subtle footer */
+
+.note{
+margin-top:40px;
+font-size:13px;
+opacity:.45;
+line-height:1.6;
+}
+
+/* micro animation */
+
+.wrapper{
+animation:fade 0.8s ease;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(12px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* mobile tweaks */
+
+@media(max-width:480px){
+
+h1{
+font-size:34px;
+}
+
+.price{
+font-size:24px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-<div id="container">
-    <canvas id="polarCanvas" width="550" height="600"></canvas>
+<div class="wrapper">
+
+<div class="label">
+Domain Available
 </div>
 
-<button id="downloadBtn">Download Diagram</button>
+<h1>litchainco.name.ng</h1>
 
-<script>
-    const canvas = document.getElementById('polarCanvas');
-    const ctx = canvas.getContext('2d');
+<div class="accent"></div>
 
-    function drawDiagram() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        const originX = 100;
-        const originY = 500;
-        
-        ctx.strokeStyle = "black";
-        ctx.lineWidth = 1.8;
-        ctx.lineCap = "round";
-        ctx.fillStyle = "black";
-        ctx.font = "italic 20px 'Times New Roman'";
+<p class="desc">
+A short, memorable name suited for a blockchain company,
+crypto infrastructure platform, fintech product, or
+modern tech startup.
+</p>
 
-        // Narrower angles to create the "slim" look of the sketch
-        const L1 = -Math.PI / 15;    // Line 1 (θ1)
-        const L2 = -Math.PI / 5;     // Line 2 (θ)
-        const L3 = -Math.PI / 4.2;   // Line 3 (θ + dθ) - Slimmer dθ slice
-        const L4 = -Math.PI / 2.8;   // Line 4 (θ2)
+<div class="price">
+₦100,000
+</div>
 
-        const rSmall = 250; // Distance for Arc AB
-        const rLarge = 420; // Distance for Arc CD
+<div class="actions">
 
-        // 1. Axes
-        // X-axis (Line 0)
-        ctx.beginPath();
-        ctx.moveTo(originX, originY);
-        ctx.lineTo(480, originY);
-        ctx.stroke();
-        ctx.fillText("x-axis", 490, originY + 5);
+<a class="btn primary" href="mailto:skyvfavy15501@gmail.com">
+Purchase Domain
+</a>
 
-        // Y-axis
-        ctx.beginPath();
-        ctx.moveTo(originX, originY);
-        ctx.lineTo(originX, 50);
-        ctx.stroke();
-        ctx.fillText("axis", originX - 20, 40);
+<a class="btn secondary" href="mailto:skyvfavy15501@gmail.com">
+Make an Offer
+</a>
 
-        // 2. Radial Lines (Line 1 to 4)
-        const drawLine = (angle, len) => {
-            ctx.beginPath();
-            ctx.moveTo(originX, originY);
-            ctx.lineTo(originX + len * Math.cos(angle), originY + len * Math.sin(angle));
-            ctx.stroke();
-        };
+</div>
 
-        drawLine(L1, 480); 
-        drawLine(L2, 480); 
-        drawLine(L3, 480); 
-        drawLine(L4, 480); 
+<div class="note">
+Direct inquiries only. Negotiations available.
+</div>
 
-        // 3. Boundary Arcs (From Line 1 to Line 4)
-        ctx.beginPath();
-        ctx.arc(originX, originY, rSmall, L1, L4, true);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.arc(originX, originY, rLarge, L1, L4, true);
-        ctx.stroke();
-
-        // 4. Shaded Region PQ (Between Line 2 & 3 AND Arc AB & CD)
-        ctx.save();
-        ctx.beginPath();
-        ctx.moveTo(originX, originY);
-        ctx.lineTo(originX + 500 * Math.cos(L2), originY + 500 * Math.sin(L2));
-        ctx.arc(originX, originY, 500, L2, L3, true);
-        ctx.lineTo(originX, originY);
-        ctx.clip();
-
-        ctx.beginPath();
-        ctx.arc(originX, originY, rLarge, L3, L2, false);
-        ctx.arc(originX, originY, rSmall, L2, L3, true);
-        ctx.closePath();
-        ctx.clip();
-
-        // Diagonal Striping
-        ctx.lineWidth = 1;
-        for (let i = -300; i < 800; i += 6) {
-            ctx.beginPath();
-            ctx.moveTo(originX + i, originY - 600);
-            ctx.lineTo(originX + i - 300, originY + 100);
-            ctx.stroke();
-        }
-        ctx.restore();
-
-        // 5. Labels and Angle Arcs (Adjusted for slim spacing)
-        ctx.fillText("O", originX - 25, originY + 25);
-        ctx.fillText("A", originX + rSmall * Math.cos(L1) + 5, originY + rSmall * Math.sin(L1) + 20);
-        ctx.fillText("B", originX + rSmall * Math.cos(L4) - 25, originY + rSmall * Math.sin(L4) + 10);
-        ctx.fillText("C", originX + rLarge * Math.cos(L1) + 5, originY + rLarge * Math.sin(L1) + 20);
-        ctx.fillText("D", originX + rLarge * Math.cos(L4) - 10, originY + rLarge * Math.sin(L4) - 10);
-        ctx.fillText("P", originX + rSmall * Math.cos(L2) + 12, originY + rSmall * Math.sin(L2) + 10);
-        ctx.fillText("Q", originX + rLarge * Math.cos(L3) + 12, originY + rLarge * Math.sin(L3) + 10);
-
-        // θ1 (Line 0 to 1)
-        ctx.beginPath(); ctx.arc(originX, originY, 80, 0, L1, true); ctx.stroke();
-        ctx.fillText("θ₁", originX + 90, originY - 15);
-
-        // θ (Line 0 to 2)
-        ctx.beginPath(); ctx.arc(originX, originY, 130, 0, L2, true); ctx.stroke();
-        ctx.fillText("θ", originX + 135, originY - 45);
-
-        // dθ (Line 2 to 3)
-        ctx.beginPath(); ctx.arc(originX, originY, 180, L2, L3, true); ctx.stroke();
-        ctx.fillText("dθ", originX + 150, originY - 110);
-
-        // θ2 (Line 0 to 4) - CORRECTED: Now from Line 0 (angle 0) to Line 4 (angle L4)
-        ctx.beginPath(); 
-        ctx.arc(originX, originY, 60, 0, L4, true); 
-        ctx.stroke();
-        ctx.fillText("θ₂", originX + 20, originY - 65);
-    }
-
-    drawDiagram();
-
-    document.getElementById('downloadBtn').addEventListener('click', () => {
-        const link = document.createElement('a');
-        link.download = 'polar_area_slim.png';
-        link.href = canvas.toDataURL();
-        link.click();
-    });
-</script>
+</div>
 
 </body>
 </html>
